@@ -4,8 +4,8 @@ import data from "../data/hygdata_v3.json" assert { type: "json" };
 import { getPosition } from "./helper/index.mjs";
 
 // Magnitude is a messure of how bright a star appears observed from earth.
-// This is messured on a reverse logarythmic scale, so the lower the better
-//
+// This is messured on a reverse logarythmic scale, so the lower the brighter
+
 // Lowest in the data set is Sirius with a value of -27.3
 // But there is a big gap up to the next brightest star
 const visibleStarsData = data.filter((item) => item.mag <= 6.5);
@@ -23,11 +23,6 @@ const coordsToPoints = (coordinate, radius) => {
     y,
     z,
   };
-  // return {
-  //   x: Number(x.toFixed(5)),
-  //   y: Number(y.toFixed(5)),
-  //   z: Number(z.toFixed(5)),
-  // };
 };
 
 const stars = [];
@@ -54,8 +49,6 @@ for (let star of visibleStarsData) {
     hr: star.hr,
     az: azalt.azimuth,
     alt: azalt.altitude,
-    // az: Number(azalt.azimuth.toFixed(5)),
-    // alt: Number(azalt.altitude.toFixed(5)),
   });
 }
 

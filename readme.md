@@ -68,7 +68,7 @@ const settings = {
     showConstellations: false,
     // Color on line used to draw constallations
     constellationColor: new THREE.Color(0xffffff),
-    // Line with for drawing constallations
+    // Line width for drawing constallations
     constellationLineWidth: 2,
     // Star size attenuation
     attenuation: false,
@@ -76,7 +76,7 @@ const settings = {
     // Default to smallest and largest apparent magnitude of stars in dataset
     starMin: 2.3,
     starMax: 13.9,
-    // Minimumbrightnes of star, filters avay all stars with
+    // Minimumbrightnes of star, filters away all stars with
     // apparent magnetude greater then value
     // Max 6.5 (all visible stars)
     starMinBrightnes: 6.5,
@@ -95,7 +95,7 @@ $ git clone git@github.com:mathiasbno/three-starmap.git
 $ cd three-starmap
 ```
 
-From there you can run the formatter using the buildt in script
+From there you can run the formatter using the built in script
 
 ```
 $ yarn run formatt
