@@ -2,7 +2,6 @@ import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "lil-gui";
-import SunCalc from "suncalc";
 import Stats from "stats.js";
 
 import { Stars } from "./Stars";
@@ -146,29 +145,11 @@ const tick = () => {
   _date.addSeconds(timeOfDay.seconds);
   _date.setDate(date.getDate() + dayInYear.day);
 
-  // const latOffset = 360 * (date.getHours() / 24 - 0.5);
-  const latOffset = 360 * (timeOfDay.hour / 24 - 0.5);
+  let hourOfDay = timeOfDay.hour;
+  const latOffset = 360 * (hourOfDay / 24 - 0.5);
 
   stars.rotation.y = THREE.MathUtils.degToRad(latLng.y + latOffset);
   stars.rotation.x = THREE.MathUtils.degToRad(latLng.x);
-
-  // stars.quaternion.setFromAxisAngle(
-  //   new THREE.Vector3(0, 1, 0),
-  //   (Math.PI / 180) * latLng.y
-  // );
-
-  // stars.rotateOnWorldAxis(
-  //   new THREE.Vector3(0, 1, 0),
-  //   THREE.MathUtils.degToRad(latLng.y + latOffset)
-  // );
-
-  // stars.rotation.setFromVector3(
-  //   new THREE.Vector3(
-  //     THREE.MathUtils.degToRad(latLng.x),
-  //     THREE.MathUtils.degToRad(latLng.y + latOffset),
-  //     THREE.MathUtils.degToRad(0)
-  //   )
-  // );
 
   // Update controls
   controls.update();
