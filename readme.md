@@ -10,9 +10,11 @@ A small point mesh for displaying realistic stars as a starmap using THREE.js. A
 
 THREE starmap is based on the [HYG dataset](https://github.com/astronexus/HYG-Database) consisting of close to 120 000 registered stars. I have converted the dataset from csv to json just to make it easier to import and work with when formatting the data.
 
-Filtering and formatting the data we reduce the dateset down to about 8913 stars that are visible by the naked eye based on the [apparent magnitude](https://en.wikipedia.org/wiki/Apparent_magnitude) of less then 6.5. The scale is a reverse logarithmic scale, that means that the lower the number the brighter in the night sky. Sirius is the brightest with apparent magnetude of -1.44. Our own sun is about -27.
+Filtering and formatting the data we reduce the dataset down to about 8913 stars that are visible by the naked eye based on the [apparent magnitude](https://en.wikipedia.org/wiki/Apparent_magnitude) of less then 6.5. The scale is a reverse logarithmic scale, that means that the lower the number the brighter in the night sky. Sirius is the brightest with apparent magnetude of -1.44. Our own sun is about -27.
 
-We then plot the stars on a sphere using the cartesian coordinates of the star and color them based on the star's color index. scale and brightnes is calculated from the apparent magnitude.
+In the formatter we also convert the cartesian coordinates into points on a sphere.
+
+We then plot the stars on a sphere using the points calculated in the formatter and color them based on the star's color index. Scale and brightnes is calculated from the apparent magnitude.
 
 #### Constellations
 
