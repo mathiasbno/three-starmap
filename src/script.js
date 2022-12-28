@@ -1,8 +1,8 @@
 import "./style.css";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "lil-gui";
 import Stats from "stats.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 import { Stars } from "./Stars";
 
@@ -39,13 +39,10 @@ gui.add(dayInYear, "day").min(0).max(365).step(1).name("Day in year");
  * Starts
  */
 const stars = new Stars({
-  debug: { active: true, ui: gui, showHelpers: false },
+  debug: { active: true, gui: gui },
   settings: {
     starMin: 2.3,
     starMax: 13.9,
-    earthTilt: true,
-    showConstellations: false,
-    constelationColor: new THREE.Color(0x00ff00),
   },
 });
 // stars.scale.setScalar(4);

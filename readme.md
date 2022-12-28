@@ -63,8 +63,9 @@ const settings = {
     active: false,
     // If you have your own lil-gui debug panel you can
     // pass it in to append the three-starmap panel to yours
-    ui: gui, // const gui = new dat.GUI();
-    // Show helper wireframe and cardinal direction helpers
+    // Otherwise, if debug is active, we'll create a new lil-gui instance for you
+    gui: null,
+    // Show helper wireframe and cardinal directions
     showHelpers: false
   },
   settings: {

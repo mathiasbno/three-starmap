@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import * as dat from "lil-gui";
 import { Line2 } from "three/examples/jsm/lines/Line2.js";
 import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
@@ -13,7 +14,12 @@ import { bvToRgb } from "./helper/colorIndex.mjs";
 
 class StarsConstructor {
   constructor(params) {
-    this.debug = params.debug;
+    this.debug = {
+      active: false,
+      gui: null,
+      showHelpers: false,
+      ...params.debug,
+    };
 
     this.settings = {
       earthTilt: true,
@@ -36,8 +42,9 @@ class StarsConstructor {
     this.setMaterial();
 
     // Debug
-    if (this.debug.active && this.debug.ui) {
-      this.debugFolder = this.debug.ui.addFolder("stars");
+    if (this.debug.active) {
+      this.debug.gui = this.debug.gui ? this.debug.gui : new dat.GUI();
+      this.debugFolder = this.debug.gui.addFolder("stars");
       this.debugInit();
     }
   }
@@ -144,17 +151,18 @@ export class Stars extends THREE.Points {
     super(stars.geometry, stars.material);
 
     this.settings = stars.settings;
+    this.debug = stars.debug;
     this.stars = stars.stars;
     this.constelationsGroup = stars.constelationsGroup;
 
     // this.setStarNames();
     this.setConstelations();
 
-    if (params.settings.earthTilt) {
+    if (this.settings.earthTilt) {
       this.setEarthTilt();
     }
 
-    if (params.debug.active && params.debug.showHelpers) {
+    if (this.debug.active && this.debug.showHelpers) {
       this.setWireframe();
       this.setCardinalDirections();
     }
