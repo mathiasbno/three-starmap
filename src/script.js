@@ -18,9 +18,6 @@ const canvas = document.querySelector("canvas.webgl");
 // Scene
 const scene = new THREE.Scene();
 
-/**
- * Test mesh
- */
 // Geometry
 const latLng = new THREE.Vector2(59.9139, 10.7522);
 const date = new Date();
@@ -52,7 +49,6 @@ const stars = new Stars({
   },
 });
 // stars.scale.setScalar(4);
-// stars.scale.setScalar(0.05);
 scene.add(stars);
 
 /**
