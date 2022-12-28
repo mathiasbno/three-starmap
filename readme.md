@@ -2,6 +2,8 @@
 
 A small point mesh for displaying realistic stars as a starmap using THREE.js. As well as showing the 88 modern constellations.
 
+![Dec-28-2022 15-35-08](https://user-images.githubusercontent.com/5957456/209828033-3216a79c-0969-4e0e-a362-144602e5ce72.gif)
+
 ### How does it work
 
 #### Stars
