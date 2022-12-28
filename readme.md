@@ -75,9 +75,8 @@ const settings = {
     // Min and max star size as shown on night sky in pixels
     starMin: 2.3,
     starMax: 13.9,
-    // Star magnitude to be calculated as 100% opacity (inverse logarytm scale for magnitude, lower is brighter)
-    // Sirius is the brightest with -27, but there is a big leaps to the second highest at -1.46 so
-    // to get a more even distribution I have set the default to -1.4
+    // Star magnitude to be calculated as 100% opacity (inverse logarytm scale, lower is brighter)
+    // If you want all the stars to be the same brightnes you can set this to 6.5
     starFadeDactor: -1.4,
     // Minimumbrightnes of star, filters away all stars with
     // apparent magnetude greater then value
