@@ -5,10 +5,16 @@ varying vec3 vColor;
 
 uniform float starMin;
 uniform float starMax;
+uniform float starFadeDactor;
 uniform float starMinBrightnes;
 
 float invLerp(float from, float to, float value){
   return (value - from) / (to - from);
+}
+
+float remap(float value, float minIn, float maxIn, float minOut, float maxOut) {
+  float t = invLerp(minIn, maxIn, value);
+  return mix(minOut, maxOut, t);
 }
 
 void main() {
@@ -20,9 +26,8 @@ void main() {
     discard;
   }
 
-  float brightnesT = invLerp(starMin, starMax, vMag);
-  float brightnes = mix(0.2, 1.0, clamp(brightnesT * 5.0, 0.0, 1.0));
+  // Calculate brightnews
+  float brightnes = 1. - remap(vMag, starFadeDactor, 6.5, 0.0, 1.0);
 
-  gl_FragColor = vec4(vColor, 1.0);
-  // gl_FragColor = vec4(vec3(1.0, 0.0, 0.0), 1.0);
+  gl_FragColor = vec4(vColor, brightnes);
 }

@@ -47,15 +47,13 @@ const stars = new Stars({
     starMin: 2.3,
     starMax: 13.9,
     earthTilt: true,
-    showConstellations: true,
+    showConstellations: false,
     constelationColor: new THREE.Color(0x00ff00),
   },
 });
 // stars.scale.setScalar(4);
 // stars.scale.setScalar(0.05);
 scene.add(stars);
-
-console.log(stars);
 
 /**
  * Stats

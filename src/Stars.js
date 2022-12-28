@@ -18,11 +18,12 @@ class StarsConstructor {
     this.settings = {
       earthTilt: true,
       showConstellations: false,
-      constellationColor: new THREE.Color(0xffffff),
+      constellationColor: new THREE.Color(0xd1d9e6),
       constellationLineWidth: 2,
       attenuation: false,
-      starMin: Math.min(...visibleStars.map((star) => star.mag)),
-      starMax: Math.max(...visibleStars.map((star) => star.mag)),
+      starMin: 2.3,
+      starMax: 13.9,
+      starFadeDactor: -1.4,
       starMinBrightnes: 6.5,
       ...params.settings,
     };
@@ -77,6 +78,7 @@ class StarsConstructor {
         starMin: { value: this.settings.starMin },
         starMax: { value: this.settings.starMax },
         starMinBrightnes: { value: this.settings.starMinBrightnes },
+        starFadeDactor: { value: this.settings.starFadeDactor },
       },
       vertexShader: vertexShader,
       fragmentShader: fragmentShader,
@@ -92,6 +94,8 @@ class StarsConstructor {
         this.material.uniforms.attenuation.value = this.settings.attenuation;
         this.material.uniforms.starMin.value = this.settings.starMin;
         this.material.uniforms.starMax.value = this.settings.starMax;
+        this.material.uniforms.starFadeDactor.value =
+          this.settings.starFadeDactor;
         this.material.uniforms.starMinBrightnes.value =
           this.settings.starMinBrightnes;
         this.material.uniformsNeedUpdate = true;
@@ -124,7 +128,10 @@ class StarsConstructor {
         .add(this.settings, "starMax", 0.0, 40.0, 0.1)
         .onChange(() => guiChanged());
       this.debugFolder
-        .add(this.settings, "starMinBrightnes", 0.0, 6.5, 0.01)
+        .add(this.settings, "starFadeDactor", -1.4, 6.5, 0.1)
+        .onChange(() => guiChanged());
+      this.debugFolder
+        .add(this.settings, "starMinBrightnes", -1.4, 6.5, 0.01)
         .onChange(() => guiChanged());
     }
   }
@@ -169,9 +176,9 @@ export class Stars extends THREE.Points {
         const starId = constellation.stars[i];
         const star = this.stars.find((item) => item.hr === starId);
 
-        // For some reason not al lthe stars are present in the dataset
+        // For some reason not all the stars are present in the dataset
         // at least not mapped up using the BSC star ID (that is mapped to hr in the HYG dataset
-        // we are using for stars
+        // we are using for stars)
         if (!!star) {
           points.push(star.x, star.y, star.z);
         }
@@ -196,14 +203,13 @@ export class Stars extends THREE.Points {
 
   setWireframe() {
     const geometry = new THREE.SphereGeometry(200, 50, 50);
-    const wireframe = new THREE.WireframeGeometry(geometry);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x6b717b,
+      wireframe: true,
+    });
 
-    const line = new THREE.LineSegments(wireframe);
-    line.material.depthTest = false;
-    line.material.opacity = 0.25;
-    line.material.transparent = true;
-
-    this.add(line);
+    const mesh = new THREE.Mesh(geometry, material);
+    this.add(mesh);
   }
 
   setCardinalDirections() {

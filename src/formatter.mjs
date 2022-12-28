@@ -6,9 +6,12 @@ import { getPosition } from "./helper/index.mjs";
 // Magnitude is a messure of how bright a star appears observed from earth.
 // This is messured on a reverse logarythmic scale, so the lower the brighter
 
-// Lowest in the data set is Sirius with a value of -27.3
-// But there is a big gap up to the next brightest star
-const visibleStarsData = data.filter((item) => item.mag <= 6.5);
+// Lowest in the data set is our own sun with a value of -27.3
+// We exclude it since its most likly gonna be drawn seperatly in a skybox and its a massive gap up
+// to the second brightest object Sirius at -1.4
+const visibleStarsData = data.filter(
+  (item) => item.mag <= 6.5 && item.mag >= -1.44
+);
 
 const coordsToPoints = (coordinate, radius) => {
   const deg2Rad = Math.PI / 180;
@@ -47,6 +50,7 @@ for (let star of visibleStarsData) {
     ci: star.ci,
     bf: star.bf,
     hr: star.hr,
+    proper: star.proper,
     az: azalt.azimuth,
     alt: azalt.altitude,
   });
