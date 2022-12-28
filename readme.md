@@ -47,7 +47,7 @@ scene.add(stars);
 
 #### Settings
 
-Settings are buildt up in two parts, the debug part and the stars setting part. Pass this object to the `Star` class.
+Settings are buildt up in two parts, the debug part and the stars setting part. Pass this object to the `Stars` class.
 
 Settings below is the _default values_, if you dont intend to change them you can skip them.
 
@@ -112,7 +112,7 @@ $ yarn install
 Now you can run the formatter using the built in script
 
 ```
-$ yarn run formatt
+$ yarn run format
 ```
 
 This will create a new json file in the `/data` folder. Tweak the `formatter.mjs` file to get the desired output
