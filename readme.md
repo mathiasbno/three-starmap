@@ -6,11 +6,11 @@ A small point mesh for displaying realistic stars as a starmap using THREE.js. A
 
 #### Stars
 
-THREE starmap is based on the [HYG dataset](https://github.com/astronexus/HYG-Database) of consisting of close to 120 000 registered stars. I have converted the dataset from csv to json just to make it easier to import and work with when formatting the data.
+THREE starmap is based on the [HYG dataset](https://github.com/astronexus/HYG-Database) consisting of close to 120 000 registered stars. I have converted the dataset from csv to json just to make it easier to import and work with when formatting the data.
 
-Filtering and formatting the data we reduce the dateset down to about 8913 stars that are visible from earth based on the [apparent magnitude](https://en.wikipedia.org/wiki/Apparent_magnitude) of less then 6.5. The scale is a reverse logarithmic scale, that means that the lower the number the brighter in the night sky.
+Filtering and formatting the data we reduce the dateset down to about 8913 stars that are visible by the naked eye based on the [apparent magnitude](https://en.wikipedia.org/wiki/Apparent_magnitude) of less then 6.5. The scale is a reverse logarithmic scale, that means that the lower the number the brighter in the night sky. Sirius is the brightest with apparent magnetude of -1.44. Our own sun is about -27.
 
-We then plot the remaining stars on a sphere using the cartesian coordinates of the star.
+We then plot the stars on a sphere using the cartesian coordinates of the star and color them based on the star's color index. scale and brightnes is calculated from the apparent magnitude.
 
 #### Constellations
 
@@ -18,7 +18,7 @@ You can also add the [88 modern constellations](https://en.wikipedia.org/wiki/IA
 
 I have also converted this to json to be easier to work with. The dataset contains a list of stars to visit in order to draw a line trough the constellation. This means that some times we visit the same star twise as we backtrack the line. Some constellations are also consistent of two parts.
 
-Unfortunetly there are a few stars that are not mapped up corectly so we have to skip them.
+For some reason there are a few stars that are not mapped up corectly so we have to skip them.
 
 ### Quick Start
 
@@ -49,7 +49,7 @@ scene.add(stars);
 
 Settings are buildt up in two parts, the debug part and the stars setting part. Pass this object to the `Star` class.
 
-Settings below is the default values, if you dont intend to change them you can skip them.
+Settings below is the _default values_, if you dont intend to change them you can skip them.
 
 ```js
 const settings = {
