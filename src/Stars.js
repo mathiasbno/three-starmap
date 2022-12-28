@@ -147,6 +147,7 @@ export class Stars extends THREE.Points {
     this.stars = stars.stars;
     this.constelationsGroup = stars.constelationsGroup;
 
+    // this.setStarNames();
     this.setConstelations();
 
     if (params.settings.earthTilt) {
@@ -164,6 +165,25 @@ export class Stars extends THREE.Points {
       new THREE.Vector3(0, 0, 1),
       (Math.PI / 180) * 23.5
     );
+  }
+
+  setStarNames() {
+    for (let star of this.stars) {
+      if (!star.proper) continue;
+      const name = new PointTextHelper({ charMax: 30 });
+      name.display({
+        text: star.proper,
+        color: "cyan",
+        size: 5,
+        position: {
+          x: star.x,
+          y: star.y,
+          z: star.z,
+        },
+      });
+
+      this.add(name);
+    }
   }
 
   setConstelations() {
