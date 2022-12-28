@@ -120,7 +120,15 @@ Now you can run the formatter using the built in script
 $ yarn run format
 ```
 
-This will create a new json file in the `/data` folder. Tweak the `formatter.mjs` file to get the desired output
+This will replace the `./data/visibleStarsFormatted.json` file in the `./data` folder. Tweak the `formatter.mjs` file to get the desired output
+
+You can add the filename at the end if you want it to be a new file.
+
+```
+$ yarn run format "filename"
+```
+
+This will end up in the data folder `./data/filename.json`
 
 _Note that you need node v18.xx.x or later to use this, as we do some experimental imports of json files._
 

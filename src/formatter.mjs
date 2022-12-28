@@ -57,7 +57,15 @@ for (let star of visibleStarsData) {
 }
 
 console.log(stars);
+console.log(`Exported ${stars.length} stars`);
+console.log("");
 
-fs.writeFileSync("./data/visibleStarsFormatted.json", JSON.stringify(stars));
+let filename = "./data/visibleStarsFormatted.json";
+
+if (process.argv[2]) {
+  filename = `./data/${process.argv[2].split(".")[0]}.json`;
+}
+
+fs.writeFileSync(filename, JSON.stringify(stars));
 
 export { visibleStarsData, stars as starsLatLng };
