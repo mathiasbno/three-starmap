@@ -49,6 +49,8 @@ scene.add(stars);
 
 Settings are buildt up in two parts, the debug part and the stars setting part. Pass this object to the `Star` class.
 
+Settings below is the default values, if you dont intend to change them you can skip them.
+
 ```js
 const settings = {
   {
@@ -67,7 +69,7 @@ const settings = {
     // Show constellations
     showConstellations: false,
     // Color on line used to draw constallations
-    constellationColor: new THREE.Color(0xffffff),
+    constellationColor: new THREE.Color(0xd1d9e6),
     // Line width for drawing constallations
     constellationLineWidth: 2,
     // Star size attenuation
@@ -97,7 +99,17 @@ $ git clone git@github.com:mathiasbno/three-starmap.git
 $ cd three-starmap
 ```
 
-From there you can run the formatter using the built in script
+```bash
+$ npm install
+```
+
+or
+
+```bash
+$ yarn install
+```
+
+Now you can run the formatter using the built in script
 
 ```
 $ yarn run formatt
@@ -106,6 +118,31 @@ $ yarn run formatt
 This will create a new json file in the `/data` folder. Tweak the `formatter.mjs` file to get the desired output
 
 _Note that you need node v18.xx.x or later to use this, as we do some experimental imports of json files._
+
+#### Dev and demo
+
+To develop and run a demo of the stars you can clone the project.
+
+```bash
+$ git clone git@github.com:mathiasbno/three-starmap.git
+$ cd three-starmap
+```
+
+```bash
+$ npm install
+```
+
+or
+
+```bash
+$ yarn install
+```
+
+Now you can run the dev server and demo by doing
+
+```bash
+$ yarn run dev
+```
 
 #### Bonus
 
