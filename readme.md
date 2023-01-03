@@ -41,7 +41,7 @@ $ yarn add three-starmap
 #### Use
 
 ```js
-import { Stars } from "./Stars";
+import Stars from "three-starmap";
 
 …
 
