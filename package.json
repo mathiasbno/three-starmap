@@ -9,9 +9,14 @@
     "format": "node ./src/formatter.mjs"
   },
   "dependencies": {
+    "@jniac/three-point-text-helper": "^1.0.8",
+    "lil-gui": "^0.17.0",
+    "suncalc": "^1.9.0",
+    "three": "^0.137.5"
+  },
+  "devDependencies": {
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
-    "@jniac/three-point-text-helper": "^1.0.8",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
@@ -21,21 +26,15 @@
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "ip": "^1.1.5",
-    "lil-gui": "^0.17.0",
     "mini-css-extract-plugin": "^2.5.3",
     "portfinder-sync": "0.0.2",
     "raw-loader": "^4.0.2",
     "stats.js": "^0.17.0",
     "style-loader": "^3.3.1",
-    "suncalc": "^1.9.0",
-    "three": "^0.137.5",
-    "three.meshline": "^1.4.0",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.3",
-    "webpack-merge": "^5.8.0"
-  },
-  "devDependencies": {
+    "webpack-merge": "^5.8.0",
     "nodemon": "^2.0.15"
   }
 }
