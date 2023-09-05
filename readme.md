@@ -59,7 +59,7 @@ $ yarn add vite-plugin-glsl
 
 And update the config to handle glsl, we also need to make sure that it can handle glsl files coming from the `node_modules` folder:
 
-```json
+```js
 import glsl from "vite-plugin-glsl";
 
 …
