@@ -30,11 +30,9 @@ For some reason there are a few stars that are not mapped up corectly so we have
 
 ```bash
 $ npm install three-starmap
-```
-
 or
-
-```bash
+$ pnpm add three-starmap
+or
 $ yarn add three-starmap
 ```
 
@@ -47,6 +45,35 @@ import Stars from "three-starmap";
 
 const stars = new Stars();
 scene.add(stars);
+```
+
+#### Vite
+
+When using vite we need to configure Vite to handle glsl files.
+
+Add glsl plugin for Vite:
+
+```bash
+$ yarn add vite-plugin-glsl
+```
+
+And update the config to handle glsl, we also need to make sure that it can handle glsl files coming from the `node_modules` folder:
+
+```json
+import glsl from "vite-plugin-glsl";
+
+…
+
+{
+  plugins: [glsl()],
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        ".glsl": "text",
+      },
+    },
+  },
+}
 ```
 
 #### Settings
