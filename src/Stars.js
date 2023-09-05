@@ -5,8 +5,8 @@ import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { PointTextHelper } from "@jniac/three-point-text-helper";
 
-import { visibleStars } from "../data/visibleStarsFormatted.js";
-import { constelations } from "../data/ConstellationLines.js";
+import { visibleStars } from "./data/visibleStarsFormatted.js";
+import { constelations } from "./data/ConstellationLines.js";
 
 import vertexShader from "./shader/vertex.glsl";
 import fragmentShader from "./shader/fragment.glsl";
