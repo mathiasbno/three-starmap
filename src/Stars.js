@@ -18,7 +18,7 @@ class StarsConstructor {
       active: false,
       gui: null,
       showHelpers: false,
-      ...params.debug,
+      ...params?.debug,
     };
 
     this.settings = {
@@ -31,7 +31,7 @@ class StarsConstructor {
       starMax: 13.9,
       starFadeDactor: -1.4,
       starMinBrightnes: 6.5,
-      ...params.settings,
+      ...params?.settings,
     };
 
     this.stars = visibleStars;
