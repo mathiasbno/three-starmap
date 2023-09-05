@@ -1,5 +1,7 @@
 import fs from "fs";
-import data from "../data/hygdata_v3.json" assert { type: "json" };
+
+// You'll have to download the csv file and convert it to json
+// import data from "../data/hygdata_v3.json" assert { type: "json" };
 
 import { getPosition } from "./helper/index.mjs";
 
