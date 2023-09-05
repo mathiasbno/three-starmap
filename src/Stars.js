@@ -5,8 +5,8 @@ import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import { LineGeometry } from "three/examples/jsm/lines/LineGeometry.js";
 import { PointTextHelper } from "@jniac/three-point-text-helper";
 
-import visibleStars from "../data/visibleStarsFormatted.json";
-import constelations from "../data/ConstellationLines.json";
+import { visibleStars } from "../data/visibleStarsFormatted.js";
+import { constelations } from "../data/ConstellationLines.js";
 
 import vertexShader from "./shader/vertex.glsl";
 import fragmentShader from "./shader/fragment.glsl";
@@ -51,7 +51,7 @@ class StarsConstructor {
 
   setGeometry() {
     this.geometry = new THREE.BufferGeometry();
-    const count = this.stars.length;
+    const count = this.stars?.length;
 
     const positions = new Float32Array(count * 3);
     const sizes = new Float32Array(count);
